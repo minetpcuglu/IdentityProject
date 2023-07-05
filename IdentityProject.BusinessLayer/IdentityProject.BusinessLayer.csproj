@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IdentityProject.DataAccessLayer\IdentityProject.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\IdentityProject.EntityLayer\IdentityProject.EntityLayer.csproj" />
+  </ItemGroup>
+
 </Project>
