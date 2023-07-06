@@ -26,7 +26,7 @@ namespace IdentityProject.PresentationLayer.Controllers
 		[HttpPost]
         public async Task<IActionResult> Index(AppUserRegisterDto request)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 AppUser appUserRegister = new AppUser()
                 {
@@ -34,6 +34,9 @@ namespace IdentityProject.PresentationLayer.Controllers
                     Surname = request.Surname,
                     UserName = request.Username,
                     Email = request.Mail,
+                    City="Karabük",
+                    District="bbb",
+                    ImageUrl="cccc"
                     
                 };
 
@@ -41,6 +44,13 @@ namespace IdentityProject.PresentationLayer.Controllers
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "ConfirmMail");
+                }
+                else
+                {
+                    foreach (var item in result.Errors)
+                    {
+                        ModelState.AddModelError("", item.Description);
+                    }
                 }
             }
             return View();
