@@ -28,6 +28,7 @@ namespace IdentityProject.PresentationLayer.Controllers
         {
             if (!ModelState.IsValid)
             {
+                Random random = new Random();
                 AppUser appUserRegister = new AppUser()
                 {
                     Name = request.Name,
@@ -36,7 +37,8 @@ namespace IdentityProject.PresentationLayer.Controllers
                     Email = request.Mail,
                     City="Karabük",
                     District="bbb",
-                    ImageUrl="cccc"
+                    ImageUrl="cccc",
+                    ConfirmCode=random.Next(1000,1000000)
                     
                 };
 
