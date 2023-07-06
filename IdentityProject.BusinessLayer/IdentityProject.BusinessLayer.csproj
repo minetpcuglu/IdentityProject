@@ -15,13 +15,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IdentityProject.DataAccessLayer\IdentityProject.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\IdentityProject.DTOLayer\IdentityProject.DTOLayer.csproj" />
     <ProjectReference Include="..\IdentityProject.EntityLayer\IdentityProject.EntityLayer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ValidationRules\AppUser\" />
     <Folder Include="ValidationRules\AppRole\" />
     <Folder Include="ValidationRules\CustomerAccount\" />
+    <Folder Include="ValidationRules\CustomerAccountProcess\" />
   </ItemGroup>
 
 </Project>
