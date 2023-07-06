@@ -14,10 +14,16 @@ namespace IdentityProject.DTOLayer.DTOs.AppUserDto
         [Display(Name="İsim")]
         [MaxLength(30, ErrorMessage = "En fazla 30 Karakter")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "Zorunlu Alan")]
+        [Display(Name = "İsim")]
+        [MaxLength(30, ErrorMessage = "En fazla 30 Karakter")]
         public string Surname { get; set; }
         public string Mail { get; set; }
         public string Username { get; set; }
+      
         public string Password { get; set; }
+
         public string ConfirmPassword { get; set; }
     }
 }
