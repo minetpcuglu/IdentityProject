@@ -10,4 +10,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.16" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\AppRoleDto\" />
+    <Folder Include="DTOs\CustomerAccountDto\" />
+    <Folder Include="DTOs\CustomerAccountProcessDto\" />
+  </ItemGroup>
+
 </Project>

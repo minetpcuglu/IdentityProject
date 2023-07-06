@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace IdentityProject.DataAccessLayer.DbContext
 {
-    public sealed partial class DatabaseContext :IdentityDbContext
+    public sealed partial class DatabaseContext :IdentityDbContext<AppUser,AppRole,int>
     {
         public DatabaseContext()
         {

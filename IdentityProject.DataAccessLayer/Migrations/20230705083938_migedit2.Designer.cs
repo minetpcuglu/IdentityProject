@@ -4,6 +4,7 @@ using IdentityProject.DataAccessLayer.DbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IdentityProject.DataAccessLayer.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230705083938_migedit2")]
+    partial class migedit2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -151,9 +153,6 @@ namespace IdentityProject.DataAccessLayer.Migrations
                     b.Property<bool>("Aktif")
                         .HasColumnType("bit");
 
-                    b.Property<int>("AppUserID")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18,2)");
 
@@ -185,8 +184,6 @@ namespace IdentityProject.DataAccessLayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserID");
 
                     b.ToTable("CustomerAccount");
                 });
@@ -338,17 +335,6 @@ namespace IdentityProject.DataAccessLayer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("IdentityProject.EntityLayer.Concrete.CustomerAccount", b =>
-                {
-                    b.HasOne("IdentityProject.EntityLayer.Concrete.AppUser", "AppUser")
-                        .WithMany("CustomerAccounts")
-                        .HasForeignKey("AppUserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("IdentityProject.EntityLayer.Concrete.AppRole", null)
@@ -398,11 +384,6 @@ namespace IdentityProject.DataAccessLayer.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("IdentityProject.EntityLayer.Concrete.AppUser", b =>
-                {
-                    b.Navigation("CustomerAccounts");
                 });
 #pragma warning restore 612, 618
         }

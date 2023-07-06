@@ -15,5 +15,7 @@ namespace IdentityProject.EntityLayer.Concrete
         public string Currency { get; set; }
         public decimal  Balance { get; set; }
         public string BankBranch { get; set; }
+        public int AppUserID { get; set; }
+        public AppUser  AppUser { get; set; }
     }
 }
