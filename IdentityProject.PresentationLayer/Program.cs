@@ -1,5 +1,6 @@
 using IdentityProject.DataAccessLayer.DbContext;
 using IdentityProject.EntityLayer.Concrete;
+using IdentityProject.PresentationLayer.Configuration;
 using IdentityProject.PresentationLayer.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DatabaseContext>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<DatabaseContext>().AddErrorDescriber<CustomIdentityValidator>();
-
+builder.Services.AddMyServices();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
