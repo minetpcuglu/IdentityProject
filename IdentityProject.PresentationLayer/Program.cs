@@ -1,4 +1,13 @@
+using IdentityProject.DataAccessLayer.DbContext;
+using IdentityProject.EntityLayer.Concrete;
+using IdentityProject.PresentationLayer.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DatabaseContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<DatabaseContext>().AddErrorDescriber<CustomIdentityValidator>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -18,6 +27,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

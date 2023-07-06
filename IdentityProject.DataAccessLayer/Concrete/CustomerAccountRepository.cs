@@ -54,7 +54,7 @@ namespace IdentityProject.DataAccessLayer.Concrete
 
         public async Task<CustomerAccountDto> GetByIdAsync(int id)
         {
-            var entity = await _customerAccountRepository.GetFirstOrDefaultAsync(u => u.Silindi == null && x => x.Id == id);
+            var entity = await _customerAccountRepository.GetFirstOrDefaultAsync(u => u.Silindi == null &&  u.Id == id);
             return ModelMapper.Mapper.Map<CustomerAccountDto>(entity);
            
         }
