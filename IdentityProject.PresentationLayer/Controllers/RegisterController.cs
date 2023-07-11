@@ -3,19 +3,17 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Mvc;
 using IdentityProject.DTOLayer.DTOs.AppUserDto;
 using Microsoft.AspNetCore.Identity;
-
-
+using IdentityProject.BusinessLayer.AppUser;
 
 namespace IdentityProject.PresentationLayer.Controllers
 {
-    public class RegisterController : Controller
-    {
-        private readonly Microsoft.AspNetCore.Identity.UserManager<AppUser> _userManager;
-
-        public RegisterController(Microsoft.AspNetCore.Identity.UserManager<AppUser> userManager)
-        {
-            _userManager = userManager;
-        }
+	public class RegisterController : Controller
+	{
+		private readonly IAppUserService _appUserService;
+		public RegisterController(BusinessLayer.AppUser.IAppUserService appUserService)
+		{
+			_appUserService = appUserService;
+		}
 
 		[HttpGet]
 		public IActionResult Index()
@@ -24,38 +22,22 @@ namespace IdentityProject.PresentationLayer.Controllers
 		}
 
 		[HttpPost]
-        public async Task<IActionResult> Index(AppUserRegisterDto request)
-        {
-            if (!ModelState.IsValid)
-            {
-                Random random = new Random();
-                AppUser appUserRegister = new AppUser()
-                {
-                    Name = request.Name,
-                    Surname = request.Surname,
-                    UserName = request.Username,
-                    Email = request.Mail,
-                    City="Karabük",
-                    District="bbb",
-                    ImageUrl="cccc",
-                    ConfirmCode=random.Next(1000,1000000)
-                    
-                };
-
-                var result = await _userManager.CreateAsync(appUserRegister,request.Password);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index", "ConfirmMail");
-                }
-                else
-                {
-                    foreach (var item in result.Errors)
-                    {
-                        ModelState.AddModelError("", item.Description);
-                    }
-                }
-            }
-            return View();
-        }
-    }
+		public async Task<IActionResult> Index(AppUserRequest request)
+		{
+			if (!ModelState.IsValid)
+			{		
+				var result = await _appUserService.AddAppUserAsync(request);
+				if (!result.Item1)
+				{
+					List<string> errors = result.Item2;
+					string errorMessage = string.Join(" ", errors);
+					ModelState.AddModelError("", errorMessage);
+				}
+				else
+					return RedirectToAction("Index", "ConfirmMail");
+			}
+			return View();
+		}
+	}
 }
+

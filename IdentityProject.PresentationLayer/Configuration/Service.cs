@@ -1,4 +1,5 @@
-﻿using IdentityProject.BusinessLayer.CustomerAccount;
+﻿using IdentityProject.BusinessLayer.AppUser;
+using IdentityProject.BusinessLayer.CustomerAccount;
 using IdentityProject.DataAccessLayer.Abstract;
 using IdentityProject.DataAccessLayer.Concrete;
 using Microsoft.AspNetCore.DataProtection.Repositories;
@@ -16,7 +17,9 @@ namespace IdentityProject.PresentationLayer.Configuration
 		{
 			services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 			services.AddScoped<ICustomerAccountService, CustomerAccountService>();
+			services.AddScoped<IAppUserService, AppUserService>();
 			services.AddScoped<ICustomerAccountRepository, CustomerAccountRepository>();
+	
 		}
 	}
 }
