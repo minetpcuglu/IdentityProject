@@ -26,7 +26,7 @@ namespace CimkoAtikTakipProjectUI.Controllers
 		}
 
 		/// <summary>
-		/// AtıkForm Ekranı
+		/// AtıkForm Ekranıii
 		/// </summary>
 		/// <returns></returns>
 		public ActionResult Index()
