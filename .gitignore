@@ -1,0 +1,14 @@
+*.suo
+*.user
+.vs/
+
+CimkoAtikTakipProject/BusinessLayer/obj
+CimkoAtikTakipProject/BusinessLayer/bin
+CimkoAtikTakipProject/CimkoAtikTakipProjectUI/bin
+CimkoAtikTakipProject/CimkoAtikTakipProjectUI/obj
+CimkoAtikTakipProject/CoreLayer/obj
+CimkoAtikTakipProject/DataAccessLayer/bin
+CimkoAtikTakipProject/CoreLayer/bin
+CimkoAtikTakipProject/DataAccessLayer/obj
+CimkoAtikTakipProject/EntitiesLayer/obj
+CimkoAtikTakipProject/EntitiesLayer/bin

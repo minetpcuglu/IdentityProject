@@ -1,0 +1,175 @@
+﻿@using DevExtreme.AspNet.Mvc
+
+<style>
+	/*.dx-datagrid .dx-row-alt > td  {
+																							background-color: rgba(216, 231, 230, 0.93);
+																						}*/
+	.dx-datagrid .dx-row:hover {
+		background-color: #f5f5f5; /* HOVER YAPISI İstediğiniz renk değeri */
+		cursor: pointer; /* İstediğiniz imleç türü */
+	}
+
+	.dx-datagrid-headers .dx-header-row {
+		background-color: rgba(240, 240, 240, 0.8);
+		font-family: 'Oswald', sans-serif;
+		font-size: 13px;
+	}
+
+	.dx-widget {
+		color: #333;
+		font-weight: 500;
+		font-size: 13px;
+		ac font-family: 'Roboto Caondensed', sans-serif;
+		/*font-family: 'Titillium Web', sans-serif;*/
+		line-height: 1.16715;
+	}
+
+	.xxx {
+		color: red;
+	}
+
+	#gridContainer .dx-datagrid-header-panel {
+		padding: 0;
+		background-color: rgb(245, 245, 245);
+		border: #dddddd;
+		border-width: 1px;
+		/* border-bottom: red; */
+		border-style: solid;
+	}
+
+		#gridContainer .dx-datagrid-header-panel .dx-toolbar {
+			margin: 0;
+			padding-right: 20px;
+			background-color: transparent;
+		}
+
+		#gridContainer .dx-datagrid-header-panel .dx-toolbar-items-container {
+			height: 70px;
+		}
+
+		#gridContainer .dx-datagrid-header-panel .dx-toolbar-before .dx-toolbar-item:not(:first-child) {
+			background-color: rgba(103, 171, 255, 0.6);
+		}
+
+		#gridContainer .dx-datagrid-header-panel .dx-toolbar-before .dx-toolbar-item:last-child {
+			padding-right: 10px;
+		}
+
+		#gridContainer .dx-datagrid-header-panel .dx-selectbox {
+			margin: 17px 10px;
+		}
+
+		#gridContainer .dx-datagrid-header-panel .dx-button {
+			margin: 17px 0;
+		}
+
+	#gridContainer .informer {
+		height: 70px;
+		width: 130px;
+		text-align: center;
+		color: #fff;
+	}
+
+	.name {
+		font-size: 22px;
+		font-weight: 600;
+		font-family: 'Titillium Web', sans-serif;
+	}
+
+	#gridContainer .count {
+		padding-top: 15px;
+		line-height: 27px;
+		font-size: 28px;
+		margin: 0;
+		font-weight: normal;
+		font-family: "Helvetica Neue", "Segoe UI", Helvetica, Verdana, sans-serif;
+	}
+
+	.popup-title {
+		text-align: center;
+	}
+</style>
+
+
+<div id="gridContainer" class="dx-datagrid">
+	@(
+		Html.DevExtreme().DataGrid<CityDTO>()
+		.ID("aciliyetID")
+		.ShowBorders(true)
+		.OnToolbarPreparing("toolbar_preparing")
+		.ShowRowLines(true)
+		.SearchPanel(s => s.Visible(true).Width(300).Placeholder("Aramak istediğiniz Cümleyi girin"))
+		.Paging(p => p.PageSize(30))
+		.Editing(e => e.Mode(GridEditMode.Popup)
+		.AllowUpdating(true)
+		.UseIcons(true)
+		.AllowAdding(true)
+		.AllowDeleting(true)
+		.Popup(p => p
+		.Title("Aciliyet Ekle/Güncelle")
+		.ShowTitle(true)
+		.Width(400)
+		.Height(400)
+		)
+		.Form(f => f.Items(items =>
+		{
+			items.AddGroup()
+			.ColCount(1) //güncelleme ekranı tek sutun haline getirme
+			.ColSpan(2)
+			.Items(groupItems =>
+			{
+				groupItems.AddSimpleFor(m => m.Name);
+				
+			});
+		}))
+		)
+		.Columns(columns =>
+		{
+			columns.AddFor(m => m.Id).Caption("ID").CssClass("text-left")
+			.Width(70);
+			columns.AddFor(m => m.Name).Caption("Adı").AllowResizing(true).CssClass("text-center")
+			.Width(300);
+			columns.AddFor(m => m.Aktif);
+			columns.AddFor(m => m.EklenmeZamani).Format("dd.MM.yyyy HH:mm").CssClass("text-center");
+			columns.Add().Type(GridCommandColumnType.Buttons).Buttons(b =>
+			{
+				b.Add().Name(GridColumnButtonName.Edit).Text("Düzenle");
+				b.Add().Name(GridColumnButtonName.Delete).Text("Sil");
+			});
+
+		})
+
+		.DataSource(d => d.Mvc()
+		.Controller("City")
+		.LoadAction("IndexGridData")
+		.UpdateAction("Edit")
+		.InsertAction("Post")
+		.DeleteAction("Delete")
+		.Key("Id")
+		)
+
+		)
+</div>
+
+<script>
+	function toolbar_preparing(e) {
+		var dataGrid = e.component;
+
+		e.toolbarOptions.items.unshift(
+			{
+				location: "before",
+				template: function () {
+					return $("<div/>")
+
+						.addClass("header current-value")
+						.append(
+
+							$("<span />")
+								.addClass("name")
+								.text("  Şehirler")
+
+						);
+				}
+			});
+	}
+</script>

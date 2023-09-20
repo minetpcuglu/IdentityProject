@@ -1,0 +1,100 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using static CimkoAtikTakipProjectUI.Controllers.WasteFormController;
+@model WasteFormViewModel
+@*@using NToastNotify.Helpers*@
+
+
+<style>
+	.dx-field-label p {
+		display: inline;
+		color: red;
+	}
+</style>
+
+
+<div class="row clearfix">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div class="card">
+			<div class="header">
+				<h2>
+					<strong>Form </strong> Oluştur
+				</h2>
+			</div>
+			<div class="body">
+				<form asp-controller="WasteForm" asp-action="NewWasteForm" method="post">
+					<div class="row clearfix">
+						<div class="col-sm-6" style="margin-bottom: 0px !important; padding-bottom: 0px !important;">
+							<div class="dx-fieldset">
+								<div class="dx-field">
+									<div class="dx-field-label"><p>*</p> İl</div>
+									<div class="dx-field-value">
+
+										@(Html.DevExtreme().SelectBoxFor(m => m.District.CityId)
+											.ID("cbbCity")
+											.NoDataText("Herhangi bir İlçe bulunamadı.")
+											.DataSource(p => p.Mvc().Controller("WasteForm").LoadAction("GetCities").Key("Id"))
+											.DisplayExpr("Name")
+											.ValueExpr("Id")
+											.SearchEnabled(true)
+											.Placeholder("İlçe Seçiniz")
+											.ShowClearButton(true)
+											.OnValueChanged(
+											@<text>
+												function(data) {
+												var cbb = $("#cbbDistrict").dxSelectBox("instance"),
+												gelenId = data.value,
+												source = cbb.getDataSource();
+												source.filter(["CityId", "=", data.value]);
+												source.load();
+												cbb.option("value", null);
+												}
+											</text>)
+											)
+									</div>
+								</div>
+						
+							</div>
+							<div class="dx-fieldset">
+								<div class="dx-field-label"><p>*</p> İlçe</div>
+								<div class="dx-field-value">
+									@(Html.DevExtreme().SelectBoxFor(c => c.DistrictId)
+										.ID("cbbDistrict")
+										.NoDataText("Herhangi bir İlçe bulunamadı.")
+										.DataSource(p => p.Mvc().Controller("WasteForm").LoadAction("GetAllDistrict").Key("Id"))
+										.DisplayExpr("Name")
+										.ValueExpr("Id")
+										.SearchEnabled(true)
+										.Placeholder("İlçe Seçiniz")
+										.ShowClearButton(true)
+										)
+								</div>
+							</div>
+
+							
+
+						</div>
+						<div class="dx-fieldset">
+							<div class="dx-field-label">Atık kodu</div>
+							<div class="dx-field-value">
+								@(Html.DevExtreme().SelectBoxFor(c => c.WasteCodeId)
+									.ID("cbbDurumm")
+									.NoDataText("Herhangi bir Atık Kod bulunamadı.")
+									.DataSource(d => d.Mvc().Controller("WasteForm").LoadAction("GetAllWasteCode").Key("Id"))
+									.DisplayExpr("Name")
+									.ValueExpr("Id")
+									.SearchEnabled(true)
+									.Placeholder("Atık Kod Seçiniz")
+									.ShowClearButton(true)
+									)
+							</div>
+						</div>
+						</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<script src="~/assets/js/app.min.js"></script>
