@@ -23,8 +23,10 @@ namespace DataAccessLayer.Repository
 		{
 			// Aktif olanları ve silinme zamanı null olanları LINQ sorgusu ile filtreleyin.
 			var list = context.Set<WasteForm>().Where(item => item.Aktif && item.SilinmeZamani == null)
-				.Include(x=>x.District).ThenInclude(x=>x.City)
+				.Include(x=>x.District)
 				.Include(x=>x.WasteCode)
+				.Include(x=>x.Factory)
+				.Include(x=>x.StockingMethod)
 				.ToList();
 			return list;
 		}

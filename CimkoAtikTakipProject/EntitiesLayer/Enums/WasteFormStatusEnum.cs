@@ -15,7 +15,9 @@ namespace EntitiesLayer.Enums
 		NumuneGonderildi = 1,
 		[Display("Takip Numarası")]
 		TakipNumarasi = 2,
-		
+		[Display("Form Gönderildi")]
+		formGonderildi = 3,
+
 	}
 	public class DisplayAttributeWasteForm : Attribute
 	{

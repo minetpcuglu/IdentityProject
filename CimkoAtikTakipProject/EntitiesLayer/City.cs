@@ -13,6 +13,6 @@ namespace EntitiesLayer
 	public class City:BaseEntity
 	{
 		public string Name { get; set; }
-		public ICollection<District> District { get; set; }
+		//public ICollection<District> District { get; set; }
 	}
 }

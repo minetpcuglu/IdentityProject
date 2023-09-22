@@ -15,6 +15,6 @@ namespace BusinessLayer.Abstract
 		ResponseModel<IEnumerable<T>> ListAll();
 		ResponseModel<T> FindById(int? id);
 		int SaveChanges();
-		public T GetById(int Id);
+		public T GetById(int? Id);
 	}
 }

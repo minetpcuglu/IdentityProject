@@ -26,6 +26,7 @@ namespace DataAccessLayer.Concrete.EntiityFramework
 		public DbSet<WasteCode> WasteCode { get; set; }
 		public DbSet<WasteForm> WasteForm { get; set; }
 		public DbSet<WasteFormImage> WasteFormImage { get; set; }
+		public DbSet<StockingMethod> StockingMethod { get; set; }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{

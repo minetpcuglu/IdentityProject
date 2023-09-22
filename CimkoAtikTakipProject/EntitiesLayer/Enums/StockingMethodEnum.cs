@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EntitiesLayer.Enums
 {
-	
 	public enum StockingMethodEnum : byte
 	{
 		[Display("Çuval")]
 		Cuval = 0,
 		[Display("Varil")]
 		Varil = 1,
-		[Display("İbc")]
+		[Display("Ibc")]
 		Ibc = 2,
 		[Display("Dökme")]
 		Dokme = 3
+
 	}
 	public class DisplayAttribute : Attribute
 	{

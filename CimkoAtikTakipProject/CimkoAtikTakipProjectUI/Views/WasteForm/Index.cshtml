@@ -3,7 +3,79 @@
     ViewData["Title"] = "Index";
 }
 
+<form id="form" method="post" enctype="multipart/form-data">
+    <h3>Profile Settings</h3>
+    <div class="dx-fieldset">
+        <div class="dx-field">
+            <div class="dx-field-label">First Name:</div>
+            <div class="dx-field-value">
+                @(Html.DevExtreme().TextBox()
+                    .Name("FirstName")
+                    .InputAttr("aria-label", "First Name")
+                    .Value("John")
+                    )
+            </div>
+        </div>
+        <div class="dx-field">
+            <div class="dx-field-label">Last Name:</div>
+            <div class="dx-field-value">
+                @(Html.DevExtreme().TextBox()
+                    .Name("LastName")
+                    .InputAttr("aria-label", "Last Name")
+                    .Value("Smith")
+                    )
+            </div>
+        </div>
+    </div>
+    <div id="fileuploader-container">
+        @(Html.DevExtreme().FileUploader()
+            .Name("base64")
+            .SelectButtonText("Select photo")
+            .LabelText("")
+            .Accept("image/*")
+            .Multiple(true)
+            .UploadMode(FileUploadMode.UseForm)
+            )
+    </div>
+    @(Html.DevExtreme().Button()
+        .ID("button")
+        .Text("Update profile")
+        .Type(ButtonType.Success)
+        .UseSubmitBehavior(true)
+        )
+</form>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
 @using (Html.BeginForm())
 {
 
@@ -99,4 +171,4 @@
         let editor = formInstance.getEditor(name);
         editor.option('mode', editor.option('mode') === 'text' ? 'password' : 'text');
     }
-</script>
+</script>*@

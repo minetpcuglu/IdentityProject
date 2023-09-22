@@ -31,6 +31,10 @@ namespace DataAccessLayer.Mappings
 					config.CreateMap<Factory, FactoryDTO>();
 					config.CreateMap<Factory, FactoryDTO>().ReverseMap();
 
+
+					config.CreateMap<StockingMethod, StockingMethodDTO>();
+					config.CreateMap<StockingMethod, StockingMethodDTO>().ReverseMap();
+
 					config.CreateMap<User, UserDTO>();
 					config.CreateMap<User, UserDTO>().ReverseMap();
 

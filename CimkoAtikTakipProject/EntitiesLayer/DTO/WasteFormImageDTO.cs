@@ -10,6 +10,7 @@ namespace EntitiesLayer.DTO
 	public class WasteFormImageDTO:BaseEntityDTO
 	{
 		public int WasteFormId { get; set; }
+		//public string WasteFormName { get; set; }
 		public WasteFormDTO WasteForm { get; set; }
 		public string Base64 { get; set; }
 

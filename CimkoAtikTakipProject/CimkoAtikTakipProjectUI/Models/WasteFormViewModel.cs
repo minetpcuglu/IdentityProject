@@ -27,11 +27,12 @@ namespace CimkoAtikTakipProjectUI.Models
 
 		public string MonthlyAmount { get; set; }
 
-		/// <summary>
-		/// Stoklama yöntemi
-		/// </summary>
-		public StockingMethodEnum? StockingMethodEnum { get; set; }
-		public string StockingMethodEnumString => StockingMethodEnum.GetDisplayValue();
+		///// <summary>
+		///// Stoklama yöntemi
+		///// </summary>
+		//public StockingMethodEnum? StockingMethodEnum { get; set; }
+		//public string StockingMethodEnumString => StockingMethodEnum.GetDisplayValue();
+		//public List<SelectListItem> StockingMethodEnumList { get; set; }
 
 		/// <summary>
 		/// Atık Kodu
@@ -53,6 +54,22 @@ namespace CimkoAtikTakipProjectUI.Models
 		public string DistrictName { get; set; }
 		public int? DistrictId { get; set; }
 
+		public EntitiesLayer.City City { get; set; }
+		public int? CityId { get; set; }
+
+		/// <summary>
+		/// Fabrika
+		/// </summary>
+		public Factory Factory { get; set; }
+		public string FactoryName { get; set; }
+		public int? FactoryId { get; set; }
+
+
+		/// <summary>
+		/// Stoklama Yöntemi
+		/// </summary>
+		public StockingMethod StockingMethod { get; set; }
+		public int? StockingMethodId { get; set; }
 
 		/// <summary>
 		/// Görüş ve İletiler

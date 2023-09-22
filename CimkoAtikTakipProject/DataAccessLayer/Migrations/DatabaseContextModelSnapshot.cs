@@ -114,6 +114,35 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Factory");
                 });
 
+            modelBuilder.Entity("EntitiesLayer.StockingMethod", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Aktif")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("EklenmeZamani")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("GuncellenmeZamani")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("SilinmeZamani")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("StockingMethod");
+                });
+
             modelBuilder.Entity("EntitiesLayer.User", b =>
                 {
                     b.Property<int>("Id")
@@ -213,6 +242,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("EklenmeZamani")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("FactoryId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("GuncellenmeZamani")
                         .HasColumnType("datetime2");
 
@@ -237,8 +269,8 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime?>("SilinmeZamani")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte?>("StockingMethodEnum")
-                        .HasColumnType("tinyint");
+                    b.Property<int>("StockingMethodId")
+                        .HasColumnType("int");
 
                     b.Property<int>("WasteCodeId")
                         .HasColumnType("int");
@@ -246,6 +278,10 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DistrictId");
+
+                    b.HasIndex("FactoryId");
+
+                    b.HasIndex("StockingMethodId");
 
                     b.HasIndex("WasteCodeId");
 
@@ -292,7 +328,7 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("EntitiesLayer.District", b =>
                 {
                     b.HasOne("EntitiesLayer.City", "City")
-                        .WithMany("District")
+                        .WithMany()
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -308,6 +344,18 @@ namespace DataAccessLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("EntitiesLayer.Factory", "Factory")
+                        .WithMany()
+                        .HasForeignKey("FactoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EntitiesLayer.StockingMethod", "StockingMethod")
+                        .WithMany()
+                        .HasForeignKey("StockingMethodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("EntitiesLayer.WasteCode", "WasteCode")
                         .WithMany("WasteForm")
                         .HasForeignKey("WasteCodeId")
@@ -315,6 +363,10 @@ namespace DataAccessLayer.Migrations
                         .IsRequired();
 
                     b.Navigation("District");
+
+                    b.Navigation("Factory");
+
+                    b.Navigation("StockingMethod");
 
                     b.Navigation("WasteCode");
                 });
@@ -328,11 +380,6 @@ namespace DataAccessLayer.Migrations
                         .IsRequired();
 
                     b.Navigation("WasteForm");
-                });
-
-            modelBuilder.Entity("EntitiesLayer.City", b =>
-                {
-                    b.Navigation("District");
                 });
 
             modelBuilder.Entity("EntitiesLayer.District", b =>

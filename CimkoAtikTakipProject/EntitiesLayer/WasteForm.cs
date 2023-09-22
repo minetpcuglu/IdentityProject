@@ -47,10 +47,10 @@ namespace EntitiesLayer
 		[StringLength(50)]
 		public string MonthlyAmount { get; set; }
 
-		/// <summary>
-		/// Stoklama yöntemi
-		/// </summary>
-		public StockingMethodEnum? StockingMethodEnum { get; set; }
+		///// <summary>
+		///// Stoklama yöntemi
+		///// </summary>
+		//public StockingMethodEnum? StockingMethodEnum { get; set; }
 
 		/// <summary>
 		/// Atık Kodu
@@ -72,6 +72,17 @@ namespace EntitiesLayer
 		public District District { get; set; }
 		public int DistrictId { get; set; }
 
+		/// <summary>
+		/// İlçe
+		/// </summary>
+		public Factory Factory { get; set; }
+		public int FactoryId { get; set; }
+
+		/// <summary>
+		/// Stoklama Yöntemi
+		/// </summary>
+		public StockingMethod StockingMethod { get; set; }
+		public int StockingMethodId { get; set; }
 
 		/// <summary>
 		/// Görüş ve İletiler

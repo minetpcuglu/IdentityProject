@@ -30,17 +30,19 @@ namespace EntitiesLayer.DTO
 
 		public string MonthlyAmount { get; set; }
 
+
 		/// <summary>
-		/// Stoklama yöntemi
+		/// Stoklama Yöntemi
 		/// </summary>
-		public StockingMethodEnum? StockingMethodEnum { get; set; }
-		public string StockingMethodEnumString => StockingMethodEnum.GetDisplayValue();
+		public StockingMethod StockingMethod { get; set; }
+		public int? StockingMethodId { get; set; }
 
 		/// <summary>
 		/// Atık Kodu
 		/// </summary>
 		public WasteCode WasteCode { get; set; }
         public string WasteCodeName { get; set; }
+        public string WasteCodeDescription { get; set; }
         public int? WasteCodeId { get; set; }
 
 		/// <summary>
@@ -56,6 +58,13 @@ namespace EntitiesLayer.DTO
 		public string DistrictName { get; set; }
 		public int? DistrictId { get; set; }
 
+
+		/// <summary>
+		/// Fabrika
+		/// </summary>
+		public Factory Factory { get; set; }
+		public string FactoryName { get; set; }
+		public int? FactoryId { get; set; }
 
 		/// <summary>
 		/// Görüş ve İletiler

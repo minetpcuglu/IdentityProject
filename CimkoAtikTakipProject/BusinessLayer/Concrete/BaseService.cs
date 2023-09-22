@@ -70,7 +70,7 @@ namespace BusinessLayer.Concrete
 		}
 		#endregion
 
-		public T GetById(int Id)
+		public T GetById(int? Id)
 		{
 			var oldEntity = _baseRepository.GetQueryable()
 				.FirstOrDefault(k => k.Id == Id);

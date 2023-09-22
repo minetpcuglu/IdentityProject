@@ -1,0 +1,24 @@
+﻿@using EntitiesLayer.DTO;
+@model WasteFormViewModel
+<style>
+	.dx-field-mine p {
+		display: inline;
+		font-weight: bold;
+	}
+
+	.dx-field-mine h3 {
+		display: inline;
+		font-size:20px;
+		font-style:italic;
+	}
+</style>
+
+<div>
+	@if ( Model.WasteCode != null )
+	{
+		<div class="dx-field-mine" >
+			<h3>Açıklama:</h3> <p>@(Model.WasteCode.Description ?? "-")</p>
+		</div>
+	}
+</div>
+
