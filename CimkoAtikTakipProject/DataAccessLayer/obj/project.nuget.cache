@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "96YdREv9lz7/cgT5ew+UlgKvQeEBfY/Z1GqbYFgfH3Cafe95QaZD+5f5uyjO1G4mkAbW6QUZvzn6tbJlDui7Cw==",
+  "dgSpecHash": "GPrZLymF7zTotqfBWeHZSIw2YtZf48lRgRxDVzGgWJbVxucQZQRcRQMwcYMj2wimoWSO7OK1xWoZnIh4BEPeVA==",
   "success": true,
-  "projectFilePath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\DataAccessLayer\\DataAccessLayer.csproj",
+  "projectFilePath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\DataAccessLayer\\DataAccessLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mine.topcuoglu\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\mine.topcuoglu\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",

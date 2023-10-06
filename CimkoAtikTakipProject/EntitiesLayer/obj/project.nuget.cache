@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9yrXL5uBc0sWlYVludELKlljLAa6PwMRymXtj6TRPfj30NzI/MH0gfQueTR+fAxFSKoQj+2mE01f/1v2I1PcLg==",
+  "dgSpecHash": "vVg6/ocO5jXow9HoX+QlHE+2O0QhLICJFUchlhcACxwiZOga4aMJJxZEUsS0dTQV28irKxnNuX8Kke9VjSEFxA==",
   "success": true,
-  "projectFilePath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\EntitiesLayer\\EntitiesLayer.csproj",
+  "projectFilePath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\EntitiesLayer\\EntitiesLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mine.topcuoglu\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\mine.topcuoglu\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",

@@ -3990,18 +3990,18 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\BusinessLayer\\BusinessLayer.csproj",
+      "projectUniqueName": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\BusinessLayer\\BusinessLayer.csproj",
       "projectName": "BusinessLayer",
-      "projectPath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\BusinessLayer\\BusinessLayer.csproj",
+      "projectPath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\BusinessLayer\\BusinessLayer.csproj",
       "packagesPath": "C:\\Users\\mine.topcuoglu\\.nuget\\packages\\",
-      "outputPath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\BusinessLayer\\obj\\",
+      "outputPath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\BusinessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\NuGet.Config",
+        "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\NuGet.Config",
         "C:\\Users\\mine.topcuoglu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
@@ -4021,8 +4021,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\DataAccessLayer\\DataAccessLayer.csproj": {
-              "projectPath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\DataAccessLayer\\DataAccessLayer.csproj"
+            "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\DataAccessLayer\\DataAccessLayer.csproj": {
+              "projectPath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\DataAccessLayer\\DataAccessLayer.csproj"
             }
           }
         }

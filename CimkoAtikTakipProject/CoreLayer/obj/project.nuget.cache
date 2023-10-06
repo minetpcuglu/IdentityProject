@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NMuNrwwXDOT2wDb08D6Q/jH3n10os0pIdCLoarlbXd5umcpzBCgdJ3M7PWbEJMNPffeoUGs+3KwKT4n/TU49CA==",
+  "dgSpecHash": "Q+8HdFgTcY7OhjjwBwdmRWGQTKVRoygj4584HZFwyYIG3iN3txpG1Pet95za671Rosh2cJu9oQHpTKiIyNe0sg==",
   "success": true,
-  "projectFilePath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj",
+  "projectFilePath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mine.topcuoglu\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\mine.topcuoglu\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\DataAccessLayer\\DataAccessLayer.csproj": {}
+    "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\DataAccessLayer\\DataAccessLayer.csproj": {}
   },
   "projects": {
-    "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj": {
+    "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj",
+        "projectUniqueName": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj",
         "projectName": "CoreLayer",
-        "projectPath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj",
+        "projectPath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj",
         "packagesPath": "C:\\Users\\mine.topcuoglu\\.nuget\\packages\\",
-        "outputPath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\CoreLayer\\obj\\",
+        "outputPath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\CoreLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\NuGet.Config",
+          "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\NuGet.Config",
           "C:\\Users\\mine.topcuoglu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
@@ -87,21 +87,21 @@
         }
       }
     },
-    "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\DataAccessLayer\\DataAccessLayer.csproj": {
+    "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\DataAccessLayer\\DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectUniqueName": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\DataAccessLayer\\DataAccessLayer.csproj",
         "projectName": "DataAccessLayer",
-        "projectPath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectPath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\DataAccessLayer\\DataAccessLayer.csproj",
         "packagesPath": "C:\\Users\\mine.topcuoglu\\.nuget\\packages\\",
-        "outputPath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\DataAccessLayer\\obj\\",
+        "outputPath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\NuGet.Config",
+          "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\NuGet.Config",
           "C:\\Users\\mine.topcuoglu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
@@ -121,11 +121,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj": {
-                "projectPath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj"
+              "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj": {
+                "projectPath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj"
               },
-              "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\EntitiesLayer\\EntitiesLayer.csproj": {
-                "projectPath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\EntitiesLayer\\EntitiesLayer.csproj"
+              "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\EntitiesLayer\\EntitiesLayer.csproj": {
+                "projectPath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\EntitiesLayer\\EntitiesLayer.csproj"
               }
             }
           }
@@ -189,21 +189,21 @@
         }
       }
     },
-    "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\EntitiesLayer\\EntitiesLayer.csproj": {
+    "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\EntitiesLayer\\EntitiesLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\EntitiesLayer\\EntitiesLayer.csproj",
+        "projectUniqueName": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\EntitiesLayer\\EntitiesLayer.csproj",
         "projectName": "EntitiesLayer",
-        "projectPath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\EntitiesLayer\\EntitiesLayer.csproj",
+        "projectPath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\EntitiesLayer\\EntitiesLayer.csproj",
         "packagesPath": "C:\\Users\\mine.topcuoglu\\.nuget\\packages\\",
-        "outputPath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\EntitiesLayer\\obj\\",
+        "outputPath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\EntitiesLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\NuGet.Config",
+          "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\NuGet.Config",
           "C:\\Users\\mine.topcuoglu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
@@ -223,8 +223,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj": {
-                "projectPath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj"
+              "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj": {
+                "projectPath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\CoreLayer\\CoreLayer.csproj"
               }
             }
           }

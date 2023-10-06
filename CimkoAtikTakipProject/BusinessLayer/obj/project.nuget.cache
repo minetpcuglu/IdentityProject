@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "USlYb3zfzBa52ItHav80MSgQqNeKZZPuJ+sWUe/9LsPMbULQSxIEJRW3N8AG0qHlvEfvhc6k4OeHmwR7JJdC/w==",
+  "dgSpecHash": "u6mlZiEyJnxpc/TTkUKxDHGQlmz0hZIl+viVXgHaOonh7zWZGX/3R5Wd8/VW6czXsNc1MBG8rVsh22DflyOuXQ==",
   "success": true,
-  "projectFilePath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\BusinessLayer\\BusinessLayer.csproj",
+  "projectFilePath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\BusinessLayer\\BusinessLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mine.topcuoglu\\.nuget\\packages\\autofac\\6.5.0\\autofac.6.5.0.nupkg.sha512",
     "C:\\Users\\mine.topcuoglu\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",

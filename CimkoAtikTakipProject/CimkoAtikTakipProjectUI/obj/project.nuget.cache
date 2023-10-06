@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PYS/nIozKmWi1hcL30Mw/a/VCF7IsygGtQwrR+vCUuPJrTK9y53Uw8e+6QnOxwuSKWIM5WYIRFmFPerRiGaeWg==",
+  "dgSpecHash": "/FMcAm04TAHHP9urfNLSTQLHSFdP+Jcbvs8kuvBd5DGhlrbx2uxM+jJbGYETHXw0Y3Z8SOtMjVgfuyERebeaJw==",
   "success": true,
-  "projectFilePath": "C:\\git\\CimkoAtikTakipProject\\CimkoAtikTakipProject\\CimkoAtikTakipProjectUI\\CimkoAtikTakipProjectUI.csproj",
+  "projectFilePath": "C:\\git\\CimkoAtikTakipProjectStajyer\\CimkoAtikTakipProject\\CimkoAtikTakipProjectUI\\CimkoAtikTakipProjectUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mine.topcuoglu\\.nuget\\packages\\autofac\\6.5.0\\autofac.6.5.0.nupkg.sha512",
     "C:\\Users\\mine.topcuoglu\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",
