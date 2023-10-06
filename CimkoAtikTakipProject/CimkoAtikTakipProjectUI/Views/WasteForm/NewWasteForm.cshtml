@@ -10,234 +10,318 @@
 }
 
 <style>
+	
+	body {
+		background-image: url('/img/sankoback.jpg'); /* Fotoğrafın yolu */
+		background-size: cover; /* Ekran boyutuna sığdır */
+		background-repeat: no-repeat; /* Tekrarlamayı önle */
+	}
+
+	/* Formun genel stilleri */
+	#form {
+		max-width: 700px;
+		margin: auto;
+		
+	}
+
+		/* Form başlığı */
+		#form h2 {
+			font-size: 28px;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+	/* Etiketlerin stilleri */
 	.dx-field-label p {
 		display: inline;
 		color: red;
+		margin-right: 5px;
 	}
 
 	.dx-field-label {
-		display: inline;
+		display: block;
 		font-weight: bold;
+		margin-bottom: 5px;
 	}
 
-	#form {
-    max-width: 600px;
-    margin: auto;
-}
-​
-#button {
-    margin-top: 50px;
-    margin-right: 20px;
-    float: right;    
-}
-​
-#fileuploader-container{
-    border: 1px solid #d3d3d3;
-    margin: 20px 20px 0 20px;
-}
-​
-#form h3 {
-    margin-left: 20px;
-    font-weight: normal;
-    font-size: 22px;
-}
+	/* Alanların stilleri */
+	.dx-field-value {
+		width: 100% !important;
+		margin-bottom: 15px;
+	}
+
+	/* Butonun stilini düzenleme */
+	#button {
+		margin-top: 30px;
+		margin-right: 20px;
+
+	}
+
+	/* Dosya yükleyici alanının stilini düzenleme */
+	#fileuploader-container {
+		margin: 20px 0 0 0;
+		
+	}
+
+	/* İlgili form elemanlarının altında yer alan hataların stilini düzenleme */
+	.text-danger {
+		color: red;
+		font-size: 14px;
+	}
+
+	.popup {
+		display: none;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: white;
+		padding: 20px;
+		z-index: 1000;
+	}
 </style>
 
+<body>
+	<div class="row clearfix" style="max-width:900px; margin: 0 auto;">
 
-
-
-
-<div class="row clearfix">
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		<div class="card">
-			<div class="header">
-				<h2>
-					<strong>Form </strong> Oluştur
-				</h2>
-			</div>
-			<div class="body">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div class="card">
+				<img src="~/img/logo.png" background-size="cover" ; style="width: 200px; height: auto;" alt="Sanko Logo" />
+				<div class="header">
+					<h2 style="text-align:center">
+						<strong>Çimko Atık</strong> Form Oluştur
+					</h2>
+				</div>
+				<div class="body">
 					<form id="form" asp-controller="WasteForm" asp-action="NewWasteForm" method="post" enctype="multipart/form-data">
-					<div class="row clearfix">
-						<div class="col-sm-12" style="margin-bottom: 0px !important; padding-bottom: 0px !important;">
-							<div class="dx-fieldset">
-								<div class="dx-field">
-									<div class="dx-field-label"><p>*</p> Firma İsmi</div>
-									<div class="dx-field-value" style="width: 100% !important">
-										@(Html.DevExtreme().TextBoxFor(c => c.CompanyName)
-											.Placeholder("Lütfen Tesis Adı Giriniz.")
-											)
+						<div class="row clearfix">
+							
+							<div class="col-sm-12" style="margin-bottom: 0px !important; padding-bottom: 0px !important;">
+								<div class="dx-fieldset">
+									<div class="dx-field">
+										<div class="dx-field-label"><p>*</p> Firma İsmi</div>
+										<div class="dx-field-value" style="width: 100% !important">
+											@(Html.DevExtreme().TextBoxFor(c => c.CompanyName)
+												.Placeholder("Lütfen Tesis Adı Giriniz.")
+												.ValidationError("Boş bırakma")
+												.Width(700)
+												)
+											@Html.ValidationMessageFor(c => c.CompanyName, "", new { @class = "text-danger" })
+										</div>
 									</div>
-								</div>
-								<div class="dx-field">
-									<div class="dx-field-label"><p>*</p> Email</div>
-									<div class="dx-field-value" style="width: 100% !important">
-										@(Html.DevExtreme().TextBoxFor(c => c.SendEmail)
-											.Placeholder("Lütfen Mail Adresinizi Giriniz.")
-											)
-									</div>
-								</div>
-								<div class="dx-field">
-									<div class="dx-field-label"><p>*</p> Telefon Numaranız</div>
-									<div class="dx-field-value" style="width: 100% !important">
-										@(Html.DevExtreme().TextBoxFor(c => c.Phone)
-											.Placeholder("Lütfen Telefon Numaranızı Giriniz.")
-											)
-									</div>
-								</div>
-								<div class="dx-field">
-									<div class="dx-field-label"><p>*</p> İl</div>
-									<div class="dx-field-value" style="width: 100% !important">
+									<div class="dx-field">
+										<div class="dx-field-label"><p>*</p> Email</div>
+										<div class="dx-field-value" style="width: 100% !important">
+											@(Html.DevExtreme().TextBoxFor(c => c.SendEmail)
 
-										@(Html.DevExtreme().SelectBoxFor(m => m.CityId)
-											.ID("cbbCity")
-											.NoDataText("Herhangi bir İlçe bulunamadı.")
-											.DataSource(p => p.Mvc().Controller("WasteForm").LoadAction("GetCities").Key("Id"))
-											.DisplayExpr("Name")
-											.ValueExpr("Id")
-											.SearchEnabled(true)
-											.Placeholder("İlçe Seçiniz")
-											.OnValueChanged(
-											@<text>
-												function(data) {
-												var cbb = $("#cbbDistrict").dxSelectBox("instance"),
-												gelenId = data.value,
-												source = cbb.getDataSource();
-												source.filter(["CityId", "=", data.value]);
-												source.load();
-												cbb.option("value", null);
-												}
-											</text>)
-											)
-									</div>
-								</div>
-								<div class="dx-field">
-									<div class="dx-field-label"><p>*</p> İlçe</div>
-									<div class="dx-field-value" style="width: 100% !important">
-										@(Html.DevExtreme().SelectBoxFor(c => c.DistrictId)
-											.ID("cbbDistrict")
-											.NoDataText("Herhangi bir İlçe bulunamadı.")
-											.DataSource(p => p.Mvc().Controller("WasteForm").LoadAction("GetAllDistrict").Key("Id"))
-											.DisplayExpr("Name")
-											.ValueExpr("Id")
-											.SearchEnabled(true)
-											.Placeholder("İlçe Seçiniz")
-											.ShowClearButton(true)
-											)
-									</div>
-								</div>
-								<div class="dx-field">
-									<div class="dx-field-label"><p>*</p> Tam Adres</div>
-									<div class="dx-field-value" style="width: 100% !important">
-										@(Html.DevExtreme().TextBoxFor(c => c.AddressLine)
-											.Placeholder("Lütfen Sokak,Cadde,Mahalle Şeklinde Detaylı Adres Giriniz.")
-											)
-									</div>
-								</div>
-								<div class="dx-field">
-									<div class="dx-field-label"><p>*</p> Aylık Miktar</div>
-									<div class="dx-field-value" style="width: 100% !important">
-										@(Html.DevExtreme().TextBoxFor(c => c.MonthlyAmount)
-											.Placeholder("Kaç Ton")
-											)
-									</div>
-								</div>
-								<div class="dx-field">
-									<div class="dx-field-label"><p>*</p> Atık Kodu</div>
-									<div class="dx-field-value" style="width: 100% !important">
-										@(Html.DevExtreme().SelectBoxFor(c => c.WasteCodeId)
-											.ID("cbbWasteCodee")
-											@*.NoDataText("Herhangi bir Atık Kod bulunamadı.")*@
-											.DataSource(d => d.Mvc().Controller("WasteForm").LoadAction("GetAllWasteCode").Key("Id"))
-											.DisplayExpr("Name")
-											.ValueExpr("Id")
-											.SearchEnabled(true)
-											.Placeholder("Atık Kod Seçiniz")
+												.Placeholder("Lütfen Mail Adresinizi Giriniz.")
 
+												.Width(700)
+												)
+											@Html.ValidationMessageFor(c => c.SendEmail, "", new { @class = "text-danger" })
+										</div>
+									</div>
+									<div class="dx-field">
+										<div class="dx-field-label"><p>*</p> Telefon Numaranız</div>
+										<div class="dx-field-value" style="width: 100% !important">
+											@(Html.DevExtreme().TextBoxFor(c => c.Phone)
+												.Placeholder("Lütfen Telefon Numaranızı Giriniz.")
+												.Width(700)
+												)
+											@Html.ValidationMessageFor(c => c.Phone, "", new { @class = "text-danger" })
+										</div>
+									</div>
+									<div class="dx-field">
+										<div class="dx-field-label"><p>*</p> İl</div>
+										<div class="dx-field-value" style="width: 100% !important">
+
+											@(Html.DevExtreme().SelectBoxFor(m => m.CityId)
+												.ID("cbbCity")
+												.NoDataText("Herhangi bir İlçe bulunamadı.")
+												.DataSource(p => p.Mvc().Controller("WasteForm").LoadAction("GetCities").Key("Id"))
+												.DisplayExpr("Name")
+												.Width(700)
+												.ValueExpr("Id")
+												.SearchEnabled(true)
+												.Placeholder("İlçe Seçiniz")
+												.OnValueChanged(
+												@<text>
+													function(data) {
+													var cbb = $("#cbbDistrict").dxSelectBox("instance"),
+													gelenId = data.value,
+													source = cbb.getDataSource();
+													source.filter(["CityId", "=", data.value]);
+													source.load();
+													cbb.option("value", null);
+													}
+												</text>)
+												)
+
+											@Html.ValidationMessageFor(c => c.CityId, "", new { @class = "text-danger" })
+										</div>
+									</div>
+									<div class="dx-field">
+										<div class="dx-field-label"><p>*</p> İlçe</div>
+										<div class="dx-field-value" style="width: 100% !important">
+											@(Html.DevExtreme().SelectBoxFor(c => c.DistrictId)
+												.ID("cbbDistrict")
+												.NoDataText("Herhangi bir İlçe bulunamadı.")
+												.DataSource(p => p.Mvc().Controller("WasteForm").LoadAction("GetAllDistrict").Key("Id"))
+												.DisplayExpr("Name")
+												.ValueExpr("Id")
+												.Width(700)
+												.SearchEnabled(true)
+												.Placeholder("İlçe Seçiniz")
+												.ShowClearButton(true)
+												)
+											@Html.ValidationMessageFor(c => c.DistrictId, "", new { @class = "text-danger" })
+										</div>
+									</div>
+									<div class="dx-field">
+										<div class="dx-field-label"><p>*</p> Tam Adres</div>
+										<div class="dx-field-value" style="width: 100% !important">
+											@(Html.DevExtreme().TextBoxFor(c => c.AddressLine)
+												.Placeholder("Lütfen Sokak,Cadde,Mahalle Şeklinde Detaylı Adres Giriniz.")
+												.Width(700)
+												)
+											@Html.ValidationMessageFor(c => c.AddressLine, "", new { @class = "text-danger" })
+										</div>
+									</div>
+									<div class="dx-field">
+										<div class="dx-field-label"><p>*</p> Aylık Miktar</div>
+										<div class="dx-field-value" style="width: 100% !important">
+											@(Html.DevExtreme().TextBoxFor(c => c.MonthlyAmount)
+												.Placeholder("Kaç Ton")
+												.Width(700)
+												)
+											@Html.ValidationMessageFor(c => c.MonthlyAmount, "", new { @class = "text-danger" })
+										</div>
+									</div>
+									<div class="dx-field">
+										<div class="dx-field-label"><p>*</p> Atık Kodu</div>
+										<div class="dx-field-value" style="width: 100% !important">
+											@(Html.DevExtreme().SelectBoxFor(c => c.WasteCodeId)
+												.ID("cbbWasteCodee")
+												@*.NoDataText("Herhangi bir Atık Kod bulunamadı.")*@
+												.DataSource(d => d.Mvc().Controller("WasteForm").LoadAction("GetAllWasteCode").Key("Id"))
+												.DisplayExpr("Name")
+												.ValueExpr("Id")
+												.Width(700)
+												.SearchEnabled(true)
+												.Placeholder("Atık Kod Seçiniz")
+
+												)
+											@Html.ValidationMessageFor(c => c.WasteCodeId, "", new { @class = "text-danger" })
+										</div>
+									</div>
+
+									<div id="wasteCodeDetailsContainer" class="col-sm-12" style="margin-bottom: 8px !important; ">
+										@*@Html.Partial("_wasteCodeDetailsPartial",Model)*@ @* Model'i _UserDetailsPartial view'ine gönderiyoruz *@
+									</div>
+									<div class="dx-field">
+										<div class="dx-field-label"><p>*</p> Fabrika</div>
+										<div class="dx-field-value" style="width: 100% !important">
+											@(Html.DevExtreme().SelectBoxFor(c => c.FactoryId)
+												.ID("cbbFactory")
+												.NoDataText("Herhangi bir Fabrika bulunamadı.")
+												.DataSource(d => d.Mvc().Controller("WasteForm").LoadAction("GetFactories").Key("Id"))
+												.DisplayExpr("Name")
+												.ValueExpr("Id")
+												.Width(700)
+												.SearchEnabled(true)
+												.Placeholder("Numuneyi Göndermek İstediğiniz Fabrikayı Seçiniz")
+
+												)
+											@Html.ValidationMessageFor(c => c.FactoryId, "", new { @class = "text-danger" })
+										</div>
+									</div>
+
+									<div class="dx-field">
+										<div class="dx-field-label"><p>*</p> Stoklama Yöntemi</div>
+										<div class="dx-field-value" style="width: 100% !important">
+											@(Html.DevExtreme().SelectBoxFor(c => c.StockingMethodId)
+												.ID("cbbStockingMethod")
+												.NoDataText("Herhangi bir Stoklama Yöntemi bulunamadı.")
+												.DataSource(d => d.Mvc().Controller("WasteForm").LoadAction("GetAllStockingMethod").Key("Id"))
+												.DisplayExpr("Name")
+												.ValueExpr("Id")
+												.Width(700)
+												.SearchEnabled(true)
+												.Placeholder("Stoklama Yönteminizi Seçiniz")
+
+												)
+											@Html.ValidationMessageFor(c => c.StockingMethodId, "", new { @class = "text-danger" })
+										</div>
+									</div>
+									<div class="dx-field">
+										<div class="dx-field-label"> Görüş Ve Önerileriniz</div>
+										<div class="dx-field-value" style="width: 100% !important">
+											@(Html.DevExtreme().TextAreaFor(c => c.Description).AutoResizeEnabled(false).Height(150).Width(700)
+												.Placeholder("Görüş, öneri ve eklemek istediklerinizi bizlere iletebilirsiniz.")
+												)
+										</div>
+									</div>
+
+									<div id="fileuploader-container">
+										@(Html.DevExtreme().FileUploader()
+											.Name("base64")
+											.SelectButtonText("Select photo")
+
+											.LabelText("")
+											.Width(700)
+											.Accept("image/*")
+									@*		.AllowedFileExtensions(new List<string> { ".jpg", ".jpeg", ".gif", ".png" })*@
+											.Multiple(true)
+											.UploadMode(FileUploadMode.UseForm)
 											)
 									</div>
-								</div>
-
-								<div id="wasteCodeDetailsContainer" class="col-sm-12" style="margin-bottom: 8px !important; ">
-									@*@Html.Partial("_wasteCodeDetailsPartial",Model)*@ @* Model'i _UserDetailsPartial view'ine gönderiyoruz *@
-								</div>
-								<div class="dx-field">
-									<div class="dx-field-label"><p>*</p> Fabrika</div>
-									<div class="dx-field-value" style="width: 100% !important">
-										@(Html.DevExtreme().SelectBoxFor(c => c.FactoryId)
-											.ID("cbbFactory")
-											.NoDataText("Herhangi bir Fabrika bulunamadı.")
-											.DataSource(d => d.Mvc().Controller("WasteForm").LoadAction("GetFactories").Key("Id"))
-											.DisplayExpr("Name")
-											.ValueExpr("Id")
-											.SearchEnabled(true)
-											.Placeholder("Numuneyi Göndermek İstediğiniz Fabrikayı Seçiniz")
-
-											)
-									</div>
-								</div>
-
-											<div class="dx-field">
-									<div class="dx-field-label"><p>*</p> Stoklama Yöntemi</div>
-									<div class="dx-field-value" style="width: 100% !important">
-										@(Html.DevExtreme().SelectBoxFor(c => c.StockingMethodId)
-											.ID("cbbStockingMethod")
-											.NoDataText("Herhangi bir Stoklama Yöntemi bulunamadı.")
-											.DataSource(d => d.Mvc().Controller("WasteForm").LoadAction("GetAllStockingMethod").Key("Id"))
-											.DisplayExpr("Name")
-											.ValueExpr("Id")
-											.SearchEnabled(true)
-											.Placeholder("Stoklama Yönteminizi Seçiniz")
-
-											)
-									</div>
-								</div>
-								<div class="dx-field">
-									<div class="dx-field-label"> Görüş Ve Önerileriniz</div>
-									<div class="dx-field-value" style="width: 100% !important">
-										@(Html.DevExtreme().TextAreaFor(c => c.Description).AutoResizeEnabled(false).Height(150).Width(1250)
-											.Placeholder("Görüş, öneri ve eklemek istediklerinizi bizlere iletebilirsiniz.")
-											)
-									</div>
-								</div>
-
-								<div id="fileuploader-container">
-									@(Html.DevExtreme().FileUploader()
-										.Name("base64")
-										.SelectButtonText("Select photo")
-										.LabelText("")
-										.Accept("image/*")
-										.AllowedFileExtensions(new List<string> { ".jpg", ".jpeg", ".gif", ".png" })
-										.Multiple(true)
-										.UploadMode(FileUploadMode.UseForm)
+									@(Html.DevExtreme().Button()
+										.ID("button")
+										.Text("Formu Gönder")
+										.Type(ButtonType.Success)
+										.UseSubmitBehavior(true)
+										.OnClick("button")
 										)
 								</div>
-								@(Html.DevExtreme().Button()
-									.ID("button")
-									.Text("Update profile")
-									.Type(ButtonType.Success)
-									.UseSubmitBehavior(true)
-									)
+
 							</div>
-
+							@{
+								DateTime currentDateTime = DateTime.Now;
+								string formattedDateTime = currentDateTime.ToString("dd.MM.yyyy");
+							}
+							<div class="row clearfix">
+								<p style="font-size: 12px;">
+									<img src="/img/SankoBTLogo.png" style="height: 20px; width: 80px;" alt="Sanko BT Logo" />
+									<b> Bilgi Teknolojileri</b>
+									<b> @formattedDateTime</b>
+								</p>
+							</div>
 						</div>
-					</div>
 
-				</form>
+					</form>
 
 
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
+</body>
 
 <script>
+	function updateBackgroundImage() {
+		// AJAX isteği sonucunda resmi güncellemek için resmin URL'sini alın
+		var backgroundImageUrl = '/img/sankoback.jpg'; // Yeni resmin URL'sini burada tanımlayın
+
+		// Sayfanın arka plan resmini güncelleyin
+		$('body').css('background-image', 'url(' + backgroundImageUrl + ')');
+	}
 	// Kullanıcı seçim kutusunun değişiklik olayı
 	$("#cbbWasteCodee").dxSelectBox({
 		onValueChanged: function (e) {
 
 			// Seçilen kullanıcının ID'sini al
 			var selectedUserId = e.value;
+			
 			// Seçilen kullanıcının detaylarını almak için Controller'a AJAX isteği gönder
 			$.ajax({
 				url: '@Url.Action("NewWasteForm", "WasteForm")', // Mevcut Action Method'u çağırıyoruz
@@ -245,7 +329,9 @@
 				data: { Id: selectedUserId },
 				success: function (data) {
 					console.log(data); // AJAX yanıtını konsola yazdırın
+					updateBackgroundImage();
 					$("#wasteCodeDetailsContainer").html(data);
+					
 				},
 				error: function () {
 					// Hata durumunda yapılacak işlemler
@@ -254,5 +340,21 @@
 		}
 	});
 </script>
+
+<script>
+	$(function () {
+		$("#button").dxButton({
+			text: "Formu Gönder",
+			type: "success",
+			useSubmitBehavior: true,
+			onClick: function () {
+				// Butona tıklandığında popup'ı göster
+				$("#myPopup").show();
+				$("#myPopup").hide();
+			}
+		});
+	});
+</script>
+
 @*
 <script src="~/assets/js/app.min.js"></script>*@

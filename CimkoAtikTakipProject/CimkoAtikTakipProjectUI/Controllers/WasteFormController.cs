@@ -219,59 +219,64 @@ namespace CimkoAtikTakipProjectUI.Controllers
 
 						};
 
-						_wasteFormImageService.Insert(wasteFormImage, true);
+						var mine = _wasteFormImageService.Insert(wasteFormImage, true);
+					
 					}
 				}
-			}
-
-			#region SMTP MAİL
-			if (res != null)
-			{
-				try
-				{
-					var SmtpServer = new SmtpClient("10.10.9.35", 25);
-
-
-
-					var mail = new MailMessage { From = new MailAddress("akiktakip@cimko.com.tr") };
-
-
-
-					mail.To.Add("ibrahim.serpici@sanko.com.tr");
-					mail.CC.Add("mine.topcuoglu@sanko.com.tr");
-					//mail.Bcc.Add(); "Gizli kişi
-
-
-
-					mail.Subject = "Çimko Müşteri Portal Ödeme Kontrol Result Hata";
-
-
-
-					mail.IsBodyHtml = true;
-
-
-
-					var htmlBody = "kontrolException.Message;";
-
-
-
-					mail.Body = htmlBody;
-
-					SmtpServer.Send(mail);
-				}
-				catch (Exception ex)
-				{
-					var hata = ex.Message;
-					throw;
-				}
-
-				return RedirectToAction("Index", "Home");
+				
 			}
 
 			return RedirectToAction("Index", "Home");
+		
 
-			//luinjceusvkzsnmm
-			#endregion
+			//#region SMTP MAİL
+			//if (res != null)
+			//{
+			//	try
+			//	{
+			//		var SmtpServer = new SmtpClient("10.10.9.35", 25);
+
+
+
+			//		var mail = new MailMessage { From = new MailAddress("akiktakip@cimko.com.tr") };
+
+
+
+			//		mail.To.Add("ibrahim.serpici@sanko.com.tr");
+			//		mail.CC.Add("mine.topcuoglu@sanko.com.tr");
+			//		//mail.Bcc.Add(); "Gizli kişi
+
+
+
+			//		mail.Subject = "Çimko Müşteri Portal Ödeme Kontrol Result Hata";
+
+
+
+			//		mail.IsBodyHtml = true;
+
+
+
+			//		var htmlBody = "kontrolException.Message;";
+
+
+
+			//		mail.Body = htmlBody;
+
+			//		SmtpServer.Send(mail);
+			//	}
+			//	catch (Exception ex)
+			//	{
+			//		var hata = ex.Message;
+			//		throw;
+			//	}
+
+			//	return RedirectToAction("Index", "Home");
+			//}
+
+			//return RedirectToAction("Index", "Home");
+
+			////luinjceusvkzsnmm
+			//#endregion
 		}
 
 
